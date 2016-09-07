@@ -3,48 +3,18 @@ using System.Collections;
 
 public class Portais : MonoBehaviour 
 {
-	public GameObject [] portais;
-	private int portalAtual = 0;
-	private bool jaEscondeu = true;
-	
+	public GameObject portalParaAtivar;
+	public GameObject [] portaisParaEsconder;
 
-	// Use this for initialization
-	void Start () 
+
+	void Acao()
 	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if (Input.GetKeyDown(KeyCode.T))
+		portalParaAtivar.SetActive(true);
+		foreach(GameObject p in portaisParaEsconder)
 		{
-			jaEscondeu = false;
-			if (portalAtual < portais.Length - 1)
-			{
-				portalAtual +=1;
-				jaEscondeu = false;
-			}
-			else
-			{
-				portalAtual = 0;
-				jaEscondeu = false;
-			}
-
+			p.SetActive(false);
 		}
-
-		if (!jaEscondeu)
-		{
-			foreach (GameObject element in portais)
-			{
-				element.SetActive(false);
-			}
-
-			portais[portalAtual].SetActive(true);
-
-			jaEscondeu = true;
-		}
-
+		Debug.Log("Trocou portal para " + gameObject.name);
 	}
 
 }
