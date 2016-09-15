@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 #ifndef UNITY_STANDARD_SHADOW_INCLUDED
 #define UNITY_STANDARD_SHADOW_INCLUDED
 
@@ -71,7 +73,7 @@ void vertShadowCaster (VertexInput v,
 	out float4 opos : SV_POSITION)
 {
 #if PLANE_CLIPPING_ENABLED
-	float4 posWorld = mul(_Object2World, v.vertex);
+	float4 posWorld = mul(unity_ObjectToWorld, v.vertex);
 	o.posWorld = posWorld.xyz;
 #endif
 	TRANSFER_SHADOW_CASTER_NOPOS(o,opos)

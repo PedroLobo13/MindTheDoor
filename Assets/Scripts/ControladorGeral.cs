@@ -7,6 +7,8 @@ public class ControladorGeral : MonoBehaviour {
 
 	public ObjetosControlador [] objetos;
 
+	public static bool mostrarCursor = false;
+
 	void Awake()
 	{
 		if (controlador == null)
@@ -27,10 +29,9 @@ public class ControladorGeral : MonoBehaviour {
 		StartCoroutine(ControladorGameobjects());
 	}
 
-	// Update is called once per frame
-	void Update () 
+	void Update()
 	{
-	
+		Cursor.visible = mostrarCursor;
 	}
 
 	IEnumerator ControladorGameobjects()

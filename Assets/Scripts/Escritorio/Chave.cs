@@ -5,22 +5,25 @@ public class Chave : MonoBehaviour {
 
 	public bool coletouChave = false;
 
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+	[Tooltip("Não obrigatório. Coloque uma fala que seja habilitada ao coletar")]
+	public GameObject falaAoColetar;
 
 	void Acao()
 	{
 		coletouChave = true;
 		GetComponent<MeshRenderer>().enabled = false;
 		GetComponent<BoxCollider>().enabled = false;
+		if (falaAoColetar != null)
+		{
+			StartCoroutine(habilitarFala());
+		}
+	}
+
+	IEnumerator habilitarFala()
+	{
+		falaAoColetar.SetActive(true);
+		yield return new WaitForSeconds(10f);
+		falaAoColetar.SetActive(false);
+
 	}
 }

@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class ControleTexto : MonoBehaviour {
 
-	public GameObject chave;
-	public GameObject fala;
-	public GameObject fala2;
+	public GameObject item;
+	public GameObject falaRepetida;
+	public GameObject falaDecisao;
 	bool estaNoLoop = false;
 	Text txt;
 
@@ -22,15 +22,15 @@ public class ControleTexto : MonoBehaviour {
 		{
 			if (!estaNoLoop)
 			{
-				fala2.SetActive(false);
-				chave.SetActive(true);
+				falaDecisao.SetActive(false);
+				item.SetActive(true);
 				Destroy(gameObject);
 			}
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			txt.text = "";
-			fala2.SetActive(false);
+			falaDecisao.SetActive(false);
 			StartCoroutine(Falar());
 		}
 	}
@@ -41,11 +41,11 @@ public class ControleTexto : MonoBehaviour {
 		{
 			estaNoLoop = true;
 			yield return new WaitForSeconds(0.5f);
-			fala.SetActive(true);
+			falaRepetida.SetActive(true);
 			yield return new WaitForSeconds(5);
-			fala.SetActive(false);
+			falaRepetida.SetActive(false);
 			yield return new WaitForSeconds(5);
-			fala2.SetActive(true);
+			falaDecisao.SetActive(true);
 
 			estaNoLoop = false;
 		}

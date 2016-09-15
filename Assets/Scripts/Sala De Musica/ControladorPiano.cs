@@ -6,17 +6,22 @@ public class ControladorPiano : MonoBehaviour {
 	public GameObject player;
 	public GameObject cameraPiano;
 	private int qntTeclasAcertadas = 0;
-	
+
+
+
 	// Update is called once per frame
 	void Update () 
 	{
 		if (cameraPiano.activeSelf)
 		{
+			ControladorGeral.mostrarCursor = true;
+
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				Sair();
 			}
 		}
+
 	
 	}
 
@@ -29,6 +34,7 @@ public class ControladorPiano : MonoBehaviour {
 	void Sair()
 	{
 		player.SetActive(true);
+		ControladorGeral.mostrarCursor = false;
 		cameraPiano.SetActive(false);
 	}
 

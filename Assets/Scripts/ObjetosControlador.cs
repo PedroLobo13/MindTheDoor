@@ -15,16 +15,4 @@ public class ObjetosControlador : System.Object {
 	public enum tipo {LigarEDestruirTempo, Ligar, InstanciarEDestruirTempo, InstanciarEDestruirColisao, Destruir, Instanciar};
 	[Tooltip("Tipo da manipulação.")]
 	public tipo tipos;
-
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
 }
